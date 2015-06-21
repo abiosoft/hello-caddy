@@ -1,5 +1,5 @@
 # hello
-This is the beginning of external middleware for [Caddy](http://caddyserver.com).
+This is the beginning of external middlewares for [Caddy](http://caddyserver.com).
 Hello is the instruction to start writing your Caddy middleware.
 
 ### Quick Start
