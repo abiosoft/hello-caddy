@@ -16,6 +16,6 @@ func Setup(c *setup.Controller) (middleware.Middleware, error) {
 type handler struct{}
 
 func (h handler) ServeHTTP(w http.ResponseWriter, r *http.Request) (int, error) {
-	w.Write([]byte("Hello handler"))
+	w.Write([]byte("Hello, I'm a caddy middleware"))
 	return 200, nil
 }
