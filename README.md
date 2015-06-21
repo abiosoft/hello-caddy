@@ -26,7 +26,7 @@ Hello, I'm a caddy middleware
 
 ### This is magic, how did it happen ?
 This repository contains config file `middleware.json`. caddydev needs `middleware.json` to integrate a middleware into caddy.
-```
+```json
 {
   "name": "Hello",
   "description": "Hello middleware says hello",
