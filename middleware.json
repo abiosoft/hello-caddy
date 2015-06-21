@@ -1,0 +1,8 @@
+{
+  "name": "Hello",
+  "description": "Hello middleware says hello",
+  "import": "github.com/abiosoft/caddy-hello",
+  "repository": "https://github.com/abiosoft/caddy-hello",
+  "directive": "hello",
+  "setup": "hello.Setup"
+}
