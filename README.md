@@ -14,7 +14,7 @@ Run caddydev from the directory to start caddy with your middleware.
 ```shell
 $ cd $GOPATH/src/github.com/abiosoft/hello-caddy
 $ caddydev
-No error encountered, starting caddy...
+Starting caddy...
 0.0.0.0:2015
 ```
 Test the middleware
