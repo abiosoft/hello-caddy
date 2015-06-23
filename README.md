@@ -55,3 +55,14 @@ func (h handler) ServeHTTP(w http.ResponseWriter, r *http.Request) (int, error) 
 ```
 
 It is not magic afterall ;).
+
+### Config
+Config | Details
+-------|--------
+name | Name of the middleware
+description | What does your middleware do
+import | go import path
+repository | middleware repository
+directive | keyword to register middleware in Caddyfile
+setup | middleware setup function as it would be accessed from external package
+after (optional) | priority of middleware. What directive should it be placed after.
