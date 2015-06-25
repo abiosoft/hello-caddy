@@ -9,7 +9,7 @@ Hello is the instruction to start writing your Caddy middleware.
 $ go get https://github.com/abiosoft/hello-caddy
 ```
 
-Run caddydev from the directory to start caddy with your middleware.
+Run [caddydev](https://github.com/caddyserver/caddydev) from the directory to start caddy with your middleware.
 
 ```shell
 $ cd $GOPATH/src/github.com/abiosoft/hello-caddy
@@ -32,8 +32,7 @@ This repository contains config file `middleware.json`. caddydev needs `middlewa
   "description": "Hello middleware says hello",
   "import": "github.com/abiosoft/hello-caddy",
   "repository": "https://github.com/abiosoft/hello-caddy",
-  "directive": "hello",
-  "setup": "hello.Setup"
+  "directive": "hello"
 }
 ```
 It also contains a Caddyfile. This is used to test the middleware in action by using the custom directive `hello`.
@@ -64,5 +63,4 @@ description | What does your middleware do
 import | go import path
 repository | middleware repository
 directive | keyword to register middleware in Caddyfile
-setup | middleware setup function as it would be accessed from external package
 after (optional) | priority of middleware. What directive should it be placed after.
