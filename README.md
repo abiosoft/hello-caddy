@@ -44,7 +44,7 @@ hello
 By default, caddydev looks for config file in the current directory and caddy also looks for Caddyfile in the current directory.
 
 #### Digging into the source, hello.go
-Firstly, caddy initializes the middleware using a compatible [Setup function](https://godoc.org/github.com/mholt/caddy/config#SetupFunc).
+Firstly, caddy initializes the middleware using a compatible [Setup function](https://godoc.org/github.com/mholt/caddy/config#SetupFunc). **Note** that the function name must be `Setup`.
 ```go
 func Setup(c *setup.Controller) (middleware.Middleware, error) {
 	return func(next middleware.Handler) middleware.Handler {
