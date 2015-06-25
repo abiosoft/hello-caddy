@@ -6,7 +6,7 @@ Hello is the instruction to start writing your Caddy middleware.
 `go get` this middleware
 
 ```shell
-$ go get https://github.com/abiosoft/hello-caddy
+$ go get github.com/abiosoft/hello-caddy
 ```
 
 Run [caddydev](https://github.com/caddyserver/caddydev) from the directory to start caddy with your middleware.
@@ -19,13 +19,13 @@ Starting caddy...
 ```
 Test the middleware
 
-```shell
+```
 $ curl localhost:2015
 Hello, I'm a caddy middleware
 ```
 
 ### This is magic, how did it happen ?
-This repository contains config file `middleware.json`. caddydev needs `middleware.json` to integrate a middleware into caddy.
+This repository contains a config file `middleware.json` that caddydev needs. It is used to integrate a middleware into caddy.
 ```json
 {
   "name": "Hello",
@@ -35,7 +35,7 @@ This repository contains config file `middleware.json`. caddydev needs `middlewa
   "directive": "hello"
 }
 ```
-It also contains a Caddyfile. This is used to test the middleware in action by using the custom directive `hello`.
+It also contains a Caddyfile that enables our new middleware by using the custom directive `hello`.
 ```
 0.0.0.0
 
@@ -43,9 +43,17 @@ hello
 ```
 By default, caddydev looks for config file in the current directory and caddy also looks for Caddyfile in the current directory.
 
-All that this middleware is doing is to write "Hello, I'm a caddy middleware".
+#### Digging into the source, hello.go
+Firstly, caddy initializes the middleware using a compatible [Setup function](https://godoc.org/github.com/mholt/caddy/config#SetupFunc).
+```go
+func Setup(c *setup.Controller) (middleware.Middleware, error) {
+	return func(next middleware.Handler) middleware.Handler {
+		return handler{}
+	}, nil
+}
+```
 
-From `hello.go`.
+Then process requests using the middleware's [Handler](https://godoc.org/github.com/mholt/caddy/middleware#Handler). All that this middleware is doing is to write "Hello, I'm a caddy middleware".
 ```go
 func (h handler) ServeHTTP(w http.ResponseWriter, r *http.Request) (int, error) {
 	w.Write([]byte("Hello, I'm a caddy middleware"))
@@ -54,13 +62,3 @@ func (h handler) ServeHTTP(w http.ResponseWriter, r *http.Request) (int, error) 
 ```
 
 It is not magic afterall ;).
-
-### Config
-Config | Details
--------|--------
-name | Name of the middleware
-description | What does your middleware do
-import | go import path
-repository | middleware repository
-directive | keyword to register middleware in Caddyfile
-after (optional) | priority of middleware. What directive should it be placed after.
