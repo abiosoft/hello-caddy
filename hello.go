@@ -9,7 +9,7 @@ import (
 
 func Setup(c *setup.Controller) (middleware.Middleware, error) {
 	return func(next middleware.Handler) middleware.Handler {
-		return handler{}
+		return &handler{}
 	}, nil
 }
 
