@@ -40,7 +40,7 @@ Firstly, caddy initializes the middleware using a compatible [Setup function](ht
 ```go
 func Setup(c *setup.Controller) (middleware.Middleware, error) {
 	return func(next middleware.Handler) middleware.Handler {
-		return handler{}
+		return &handler{}
 	}, nil
 }
 ```
