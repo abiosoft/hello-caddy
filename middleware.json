@@ -1,7 +1,0 @@
-{
-  "name": "Hello",
-  "description": "Hello middleware says hello",
-  "import": "github.com/abiosoft/hello-caddy",
-  "repository": "https://github.com/abiosoft/hello-caddy",
-  "directive": "hello"
-}
