@@ -9,11 +9,10 @@ Hello is the instruction to start writing your Caddy middleware.
 $ go get github.com/abiosoft/hello-caddy
 ```
 
-Run [caddydev](https://github.com/caddyserver/caddydev) from the directory to start caddy with your middleware.
+Run [caddydev](https://github.com/caddyserver/caddydev) to start caddy with your new middleware.
 
 ```shell
-$ cd $GOPATH/src/github.com/abiosoft/hello-caddy
-$ caddydev
+$ caddydev -source github.com/abiosoft/hello-caddy hello
 Starting caddy...
 0.0.0.0:2015
 ```
@@ -25,23 +24,16 @@ Hello, I'm a caddy middleware
 ```
 
 ### This is magic, how did it happen ?
-This repository contains a config file `middleware.json` that caddydev needs. It is used to integrate a middleware into caddy.
-```json
-{
-  "name": "Hello",
-  "description": "Hello middleware says hello",
-  "import": "github.com/abiosoft/hello-caddy",
-  "repository": "https://github.com/abiosoft/hello-caddy",
-  "directive": "hello"
-}
-```
-It also contains a Caddyfile that enables our new middleware by using the custom directive `hello`.
+By default, caddy looks for Caddyfile in the current directory and this repository contains a suitable one. **Note** our new directive `hello`.
 ```
 0.0.0.0
 
 hello
 ```
-By default, caddydev looks for config file in the current directory and caddy also looks for Caddyfile in the current directory.
+Then caddydev is started using this repository as source and `hello` as directive.
+```
+$ caddydev -source github.com/abiosoft/hello-caddy hello
+```
 
 #### Digging into the source, hello.go
 Firstly, caddy initializes the middleware using a compatible [Setup function](https://godoc.org/github.com/mholt/caddy/config#SetupFunc). **Note** that the function name must be `Setup`.
