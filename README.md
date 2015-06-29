@@ -9,7 +9,7 @@ Hello is the instruction to start writing your Caddy middleware.
 $ go get github.com/abiosoft/hello-caddy
 ```
 
-Run [caddydev](https://github.com/caddyserver/caddydev) to start caddy with your new middleware.
+Run [caddydev](https://github.com/caddyserver/caddydev) to start Caddy with your new middleware.
 
 ```shell
 $ caddydev -source github.com/abiosoft/hello-caddy hello
@@ -24,7 +24,7 @@ Hello, I'm a caddy middleware
 ```
 
 ### This is magic, how did it happen ?
-By default, caddy looks for Caddyfile in the current directory and this repository contains a suitable one. **Note** our new directive `hello`.
+By default, Caddy looks for Caddyfile in the current directory and this repository contains a suitable one. **Note** our new directive `hello`.
 ```
 0.0.0.0
 
@@ -36,7 +36,7 @@ $ caddydev -source github.com/abiosoft/hello-caddy hello
 ```
 
 #### Digging into the source, hello.go
-Firstly, caddy initializes the middleware using a compatible [Setup function](https://godoc.org/github.com/mholt/caddy/config#SetupFunc). **Note** that the function name must be `Setup`.
+Firstly, Caddy initializes the middleware using a compatible [Setup function](https://godoc.org/github.com/mholt/caddy/config#SetupFunc). **Note** that the function name must be `Setup`.
 ```go
 func Setup(c *setup.Controller) (middleware.Middleware, error) {
 	return func(next middleware.Handler) middleware.Handler {
