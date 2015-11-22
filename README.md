@@ -25,7 +25,7 @@ Hello, I'm a caddy middleware
 
 ### This is magic, how did it happen ?
 By default, Caddy looks for Caddyfile in the current directory and this repository contains a suitable one. **Note** our new directive `hello`.
-```
+```conf
 0.0.0.0
 
 hello
@@ -36,7 +36,7 @@ $ caddydev -source github.com/abiosoft/hello-caddy hello
 ```
 
 #### Digging into the source, hello.go
-Firstly, Caddy initializes the middleware using a compatible [Setup function](https://godoc.org/github.com/mholt/caddy/config#SetupFunc). **Note** that the function name must be `Setup`.
+Firstly, Caddy initializes the middleware using a compatible [Setup function](https://godoc.org/github.com/mholt/caddy/caddy#SetupFunc). **Note** that the function name must be `Setup`.
 ```go
 func Setup(c *setup.Controller) (middleware.Middleware, error) {
 	return func(next middleware.Handler) middleware.Handler {
