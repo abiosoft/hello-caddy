@@ -31,13 +31,13 @@ Hello, I'm a caddy middleware
 ```
 
 ### This is magic, how did it happen ?
-By default, Caddy looks for Caddyfile in the current directory and this repository contains a suitable one. **Note** our new directive `hello`.
+By default, Caddy looks for [`Caddyfile`](https://caddyserver.com/docs/caddyfile) in the current directory and this repository contains a suitable one. **Note** our new directive `hello`.
 ```conf
 0.0.0.0
 
 hello
 ```
-This repository also contains a `config.json` file.
+This repository also contains a [`config.json`](https://github.com/caddyserver/caddydev#1-configjson-file) file.
 ```
 {
   "directive" : "hello"
