@@ -9,13 +9,20 @@ Hello is the instruction to start writing your Caddy middleware.
 $ go get github.com/abiosoft/hello-caddy
 ```
 
+`cd` into the source directory
+
+```shell
+$ cd $GOPATH/src/github.com/abiosoft/hello-caddy
+```
+
 Run [caddydev](https://github.com/caddyserver/caddydev) to start Caddy with your new middleware.
 
 ```shell
-$ caddydev -source github.com/abiosoft/hello-caddy hello
+$ caddydev
 Starting caddy...
 0.0.0.0:2015
 ```
+
 Test the middleware
 
 ```
@@ -30,9 +37,11 @@ By default, Caddy looks for Caddyfile in the current directory and this reposito
 
 hello
 ```
-Then caddydev is started using this repository as source and `hello` as directive.
+This repository also contains a `config.json` file.
 ```
-$ caddydev -source github.com/abiosoft/hello-caddy hello
+{
+  "directive" : "hello"
+}
 ```
 
 #### Digging into the source, hello.go
