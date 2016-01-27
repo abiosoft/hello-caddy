@@ -1,6 +1,8 @@
 # hello
-This is the beginning of external middlewares for [Caddy](http://caddyserver.com).
-Hello is the instruction to start writing your Caddy middleware.
+Sample add-on for [Caddy](http://caddyserver.com).
+
+## Depreciated
+Use the [caddydev](https://github.com/caddyserver/caddydev#create-a-skeleton-add-on) tool to generate skeleton app instead. More [here](https://github.com/caddyserver/caddydev#create-a-skeleton-add-on). 
 
 ### Quick Start
 `go get` this middleware
